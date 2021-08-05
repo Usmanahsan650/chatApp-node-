@@ -1,0 +1,102 @@
+html,body{
+    
+    height: -webkit-fill-available;
+}
+#main{
+    background-color: rgba(22, 19, 19, 0.795);
+    height: 90%;
+}
+.row{
+    background-color: rgba(22, 19, 19, 0.795);
+    height: 100%
+}
+.server-message{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+.message{
+    word-break:normal;
+    margin-right: 5px;
+    width: 100%;
+    clear: both;
+    margin-left: 5px;
+    /* display: flex;
+    flex-direction: row; */
+    background-color: rgb(0, 32, 22);
+    border-radius: 5px 0px 5px 0px;
+    padding: 5px;
+    width: fit-content;
+}
+.my-message{
+    display: flex;
+    width: 100%;
+    flex-direction: row
+}
+.message-from{
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    /* margin-right: 2px; */
+    /* clear: both;
+    margin-left: 5px; */
+    /* float:right; */
+    /* background-color: rgb(0, 32, 22);
+    border-radius: 5px 0px 5px 0px;
+    padding: 5px;
+    width: fit-content; */
+}
+#time{
+    margin-left: 2px;
+    font-size: x-small;
+}
+#chats{
+    background-color:  rgba(22, 19, 19, 0.795);;
+}
+#messages{
+    overflow-y: scroll;
+    scrollbar-color: green;
+    scrollbar-arrow-color: green;
+    padding-top: 5px;
+    color: rgb(255, 255, 255);
+    height: 90%;
+    background-color: rgba(85, 139, 103, 0.788);;
+}
+#sidebar{
+    height: 90%;
+    color: white;
+    background-color: rgba(1, 65, 22, 0.911);;
+}
+button{
+    white-space: nowrap;
+}
+#message-form{
+    display: flex;
+
+}
+#identifier{
+    margin-left: 4px;
+    float:right;
+    opacity: 0.6;
+    font-size: xx-small;
+}
+#chats{
+    height: 100%;
+}
+#entry-form{
+    
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    /* background-color: grey; */
+}
+#entryform{
+    padding: 10px;
+    height: auto;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.521);
+    align-self: center;
+    /* width:20%; */
+}

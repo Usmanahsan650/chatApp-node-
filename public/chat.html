@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="icon" href="/images/icon.png">
+    <link rel="stylesheet" href="/styles/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-dark ">
+        <a class="navbar-brand" href="/">
+          <img src="/images/icon.png" width="30" height="30" alt="">
+        </a>
+      </nav>
+    <!-- <button id="Increment">+</button>
+    <span id=count></span>
+    <br> -->
+    <div id='main'class="container-fluid" >
+    <div class="row">        
+    <div class="col-sm-3" >
+        <div id="sidebar">sidebar</div>
+    </div>
+        <div id="chats" class="col-sm-9">
+        <div id="messages" >
+        </div>
+            <form id="message-form">
+                <input type="text" class="form-control" style="margin-right: 2px;" name="message" required autocomplete="off">
+                <button type="submit" class="btn btn-outline-success">Send</button>
+                <button class="btn btn-outline-success" id="sendloc">Send location</button>
+            </form>
+    
+</div>
+</div>
+</div>
+<script id="userlist" type="text/ejs">
+  <div>Room: <%= room %> </div>
+  <div style="text-decoration: underline;">Active Users</div>
+  <div>
+    <ul>
+      <% users.forEach((user)=>{ %>
+        <li><%= user.username %>
+     <% }) %>
+    </ul>
+  </div>
+</script>
+
+
+    <script id="messages-temp" type="text/x-handlebars-template">
+    <div>
+        {{#ifEquals from "server"}}
+        <span class="server-message"><p class=>{{message}}</p><p id="time"> {{createdAt}}</p></span>
+        {{else}}  
+        {{#if location}}
+        {{#if from}}
+        <span class="message-from"><p class="message"><label id="identifier">~{{from}}</label><a href={{location}} target="_blank">This is my location</a></p><p id="time" style="float: right;"> {{createdAt}}</p></span> 
+        {{else}}
+        <span class="my-message" ><p class="message" ><label id="identifier">~me</label><a href={{location}} target="_blank">This is my location</a></p><p id="time"> {{createdAt}}</p></span> 
+        {{/if}}
+        {{else}}
+        {{#if from}}
+        <span class="message-from"><p class="message" ><label id="identifier">~{{from}}</label>{{message}}</p><p id="time" style="float: right;"> {{createdAt}}</p></span>
+      {{else}}
+       <span class="my-message" ><p class="message"><label id="identifier">~me</label>{{message}}</p><p id="time"> {{createdAt}}</p></span>
+       {{/if}}
+       {{/if}}
+        {{/ifEquals}}
+    </div>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.6/ejs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+</html>
