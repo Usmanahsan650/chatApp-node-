@@ -105,7 +105,7 @@ socket.emit('join',{username,room},(error)=>{
 
 socket.on('getUsers',({room,users})=>{
     console.log(users)
- const html=ejs.render(userslists,{users,room});
+ const html=ejs.render(userslists,{users,room,username});
  $sidebar.innerHTML=html;
 
 })
